@@ -1,0 +1,416 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ZestBotz</title>
+    <link rel="icon" href="{% static 'logo.png' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      
+      .nav-item.dropdown:hover .dropdown-menu {
+          display: block; 
+      }
+
+      
+      .nav-item .dropdown-menu {
+          margin-top: 0; 
+      }
+
+      .dropdown-menu a {
+          font-size: 18px;
+      }
+
+      .image-container-home {
+        position: relative;
+        overflow: hidden;
+      }
+    
+      .img-thumbnail-home {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+      }
+    
+      @media (max-width: 768px) {
+        .main h2 {
+          font-size: 2rem; /* Smaller font size for mobile */
+        }
+        .main p {
+          font-size: 1rem; /* Smaller font size for mobile */
+        }
+      }
+    
+      @media (max-width: 480px) {
+        .main h2 {
+          font-size: 1.5rem; /* Further reduce font size for very small screens */
+        }
+        .main p {
+          font-size: 0.9rem; /* Further reduce font size for very small screens */
+        }
+      }
+  </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(12, 11, 11, 0.9);">
+      <div class="container">
+          <a class="navbar-brand" href="#" style="font-size: 30px; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: 400; color: #f48200;">
+              <img src="{% static 'logo.png' %}" alt="Logo" style="height: 40px; margin-right: 8px;">
+              ZestBotz
+          </a>
+          <button class="navbar-toggler" style="color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" style="background-color: white;"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#home" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#about" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#service" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Service</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #2c2c2c; border-radius: 10px; border: 1px solid #d2ff7f; padding: 10px;">
+                          <li><a class="dropdown-item" href="{% url 'healthcare_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Healthcare Industry</a></li>
+                          <li><a class="dropdown-item" href="{% url 'finance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Finance Industry</a></li>
+                          <li><a class="dropdown-item" href="{% url 'insurance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Insurance Industry</a></li>
+                      </ul>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#contact" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#faq" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#career" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Careers</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  
+  
+<!-- HOME PAGE-->
+<div class="image-container-home" id="home" name="home" style="position: relative;">
+  <!-- Image -->
+  <img src="{% static 'ai.jpeg' %}" class="img-thumbnail-home" style="height: 100vh; width: 100%; object-fit: cover; border: none;">
+  
+  <!-- Section with Content (centered on the image) -->
+  <section class="main" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; padding: 20px; color: white;">
+    <div class="container py-5">
+      <div class="row py-4">
+        <div class="col-lg-12 text-center">
+          <h2 style="color: white; font-weight: bold; font-size: 2.7rem;">AI Powered Workflow Automation Services</h2>
+          <p style="color: white; font-size: 1.4rem; font-weight: 500;">We deliver intelligent automation solutions leveraging AI, Python, and UiPath to optimize costs, minimize workforce needs, and boost operational efficiency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+        <!-- ABOUT US -->
+        <section class="py-3 py-md-5" id="about" name="about" >
+          <div class="container"  style="padding: 30px;">
+            <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+              <div class="col-12 col-lg-6">
+                <img class="img-fluid rounded" loading="lazy" src="{% static 'about_img.jpeg' %}">
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="row justify-content-xl-center">
+                  <div class="col-12 col-xl-10">
+                    <h2 class="mb-3">Welcome To ZestBotz</h2>
+                    <p class="lead fs-4 mb-3 mb-xl-5">With years of experience and deep industry knowledge, we have a proven track record of success and are constantly pushing ourselves to stay ahead of the curve.</p>
+                    <div class="d-flex align-items-center mb-3">
+                      <div class="me-3 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="fs-5 m-0">Our evolution procedure is super intelligent.</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <div class="me-3 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="fs-5 m-0">We deliver services beyond expectations.</p>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-4 mb-xl-5">
+                      <div class="me-3 text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p class="fs-5 m-0">Let's hire us to reach your objectives.</p>
+                      </div>
+                    </div>
+                    <a type="button" class="btn bsb-btn-xl btn-outline-primary rounded-pill" href="#contact">Connect Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- WHY US? -->
+        <div class="image-container" style="position: relative; width: 100%; height: 100vh; margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center;">
+          
+          <img src="{% static '14.jpeg' %}" style="height: 100%; width: 100%; object-fit: cover; position: absolute; top: 0; left: 0; filter: brightness(60%); z-index: -1;">
+        
+          <div class="content" style="width: 80%; max-width: 900px; box-sizing: border-box;">
+            
+            <h1 class="about-title" style="font-size: 52px; color: #1d1a1a; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 1.2px; line-height: 1.3; text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); margin-bottom: 20px;">
+              Why Choose Us?
+            </h1>
+        
+            <p style="font-size: 20px; color: #343f4f; line-height: 1.8; font-family: 'Lato', sans-serif; text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); text-align: justify;">
+              ZestBotz, as an Intelligent Automation provider, specializes in optimizing business processes by integrating digital workers—software robots or AI-powered systems—into everyday operations. <br><br>
+              These digital workers are designed to automate repetitive, time-consuming tasks, enabling companies to reduce operational costs, increase efficiency, and allow their human workforce to focus on more strategic activities.<br><br>
+              ZestBotz envisions a future where human and machine collaboration drives smarter business outcomes.
+            </p>
+          </div>
+        </div>
+        
+        
+      
+        
+        <!-- SERVICES HEADING -->
+        <div class="container" id="service" name="service">
+          <div class="row justify-content-center">
+              <h1 class="about-title" style="font-size:48px; text-align: center; padding: 60px;  color:#002244; font-weight: bold;letter-spacing:1.5px;line-height:1.3;">Who we serve</h1>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row justify-content-between align-items-center">
+            
+            <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
+              <a href="{% url 'healthcare_page' %}">
+                <img src="{% static 'health.jpeg' %}" alt="Healthcare Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);">
+              </a>
+              <h2 style="font-size: 34px; color: #002244; margin-top: 15px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">Healthcare<br> Industry</h2>
+            </div>
+        
+            <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
+              <a href="{% url 'finance_page' %}">
+                <img src="{% static 'finance.jpeg' %}" alt="Finance Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);">
+              </a>
+              <h2 style="font-size: 34px; color: #002244; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">Finance<br> Industry</h2>
+            </div>
+        
+            <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
+              <a href="{% url 'insurance_page' %}">
+                <img src="{% static 'insurance.jpeg' %}" alt="Insurance Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2);">
+              </a>
+              <h2 style="font-size: 34px; color: #002244; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">Insurance<br> Industry</h2>
+            </div>
+        
+          </div>
+        </div>
+        
+
+      <!-- CONTACT US FORM -->
+      <form method="POST" action="" id="contact" name="contact" style="padding: 60px;">
+        {% csrf_token %}
+        <div class="container"  style="background-color: rgb(235 238 255 / 95%); padding: 55px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); border-radius: 10px;">
+          <h2 style="color: #002244; font-weight: bold; text-align: center; margin-bottom: 20px; font-size:48px;">Contact Us</h2>
+          
+            <div class="mb-3">
+              <label for="name" class="form-label" style="font-weight: bold; color: #333;">Name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 15px; font-size: 16px; border-radius: 5px;">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label" style="font-weight: bold; color: #333;">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 15px; font-size: 16px; border-radius: 5px;">
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label" style="font-weight: bold; color: #333;">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of your message"style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 15px; font-size: 16px; border-radius: 5px;">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label" style="font-weight: bold; color: #333;">Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" placeholder="Write your message" required style="background-color: #f9f9f9; border: 1px solid #ddd; padding: 15px; font-size: 16px; border-radius: 5px;"></textarea>
+            </div>
+            <button type="submit" class="btn-contact" style="background-color: #002244; border: none; padding: 10px 20px; font-size: 18px; font-weight: bold; color: white; border-radius: 5px; width: 100%; cursor: pointer;">
+              Send Message
+            </button>
+          
+        </div>
+      </div>
+      </form>
+      
+
+      <!-- FAQs -->
+      <div class="image-container" id="faq" name="faq" style="position: relative; width: 100%; height: 100vh; margin: 0; padding: 30px; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center;margin-top:30px;">
+        <img src="{% static 'bg.jpg' %}" style="height: 100%; width: 100%; object-fit: cover; position: absolute; top: 0; left: 0; filter: brightness(100%); z-index: -1;">
+        <div class="wrapper" style="max-width: 800px; margin: 0 auto; font-family: Arial, sans-serif; padding:30px;">
+          
+          <h1 style="text-align: center; font-size: 2.5em; margin-bottom: 20px; padding:30px; color: #002244; font-weight: bold;">Frequently Asked Questions</h1>
+        
+          <!-- Question 1 -->
+          <div class="faq" style="margin-bottom: 10px;">
+            <button class="accordion" style="background-color: #f1f1f1; color: #444; cursor: pointer; padding: 18px; width: 100%; text-align: left; border: none; outline: none; font-size: 1.2em; transition: 0.4s;">
+              What is ZestBotz? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel" style="padding: 0 18px; display: none; background-color: white; overflow: hidden;">
+              <p style="padding: 15px;">ZestBotz is an Intelligent Automation provider that specializes in optimizing business processes by integrating digital workers, such as software robots or AI-powered systems, into everyday operations.</p>
+            </div>
+          </div>
+        
+          <!-- Question 2 -->
+          <div class="faq" style="margin-bottom: 10px;">
+            <button class="accordion" style="background-color: #f1f1f1; color: #444; cursor: pointer; padding: 18px; width: 100%; text-align: left; border: none; outline: none; font-size: 1.2em; transition: 0.4s;">
+              What do digital workers do in ZestBotz solutions? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel" style="padding: 0 18px; display: none; background-color: white; overflow: hidden;">
+              <p style="padding: 15px;">Digital workers in ZestBotz solutions are designed to automate repetitive and time-consuming tasks. This helps companies reduce operational costs, boost efficiency, and allow employees to focus on more strategic activities.
+              </p>
+            </div>
+          </div>
+        
+          <!-- Question 3 -->
+          <div class="faq" style="margin-bottom: 10px;">
+            <button class="accordion" style="background-color: #f1f1f1; color: #444; cursor: pointer; padding: 18px; width: 100%; text-align: left; border: none; outline: none; font-size: 1.2em; transition: 0.4s;">
+              How does ZestBotz benefit businesses? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel" style="padding: 0 18px; display: none; background-color: white; overflow: hidden;">
+              <p style="padding: 15px;">ZestBotz helps businesses by automating routine tasks, leading to increased efficiency, reduced operational costs, and enabling employees to concentrate on more valuable and strategic work.</p>
+            </div>
+          </div>
+        
+          <!-- Question 4 -->
+          <div class="faq" style="margin-bottom: 10px;">
+            <button class="accordion" style="background-color: #f1f1f1; color: #444; cursor: pointer; padding: 18px; width: 100%; text-align: left; border: none; outline: none; font-size: 1.2em; transition: 0.4s;">
+              What is ZestBotz's vision for the future? <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="panel" style="padding: 0 18px; display: none; background-color: white; overflow: hidden;">
+              <p style="padding: 15px;">ZestBotz envisions a future where human and machine collaboration drives smarter and more efficient business outcomes, transforming the way organizations operate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+      </script>
+      
+      <!--CAREER-->
+      <div class="container" id="career" name="career" style="background-color: rgb(235 238 255 / 95%); padding: 50px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); border-radius: 15px; max-width: 600px; width: 100%;margin-top:60px;">
+        <h1 style="text-align: center; font-size: 32px; font-weight: bold; color: #002244; margin-bottom: 20px; padding:30px;">
+          Join Our Team at ZestBotz
+        </h1>
+        <p style="text-align: center; font-size: 18px; color: #333; margin-bottom: 30px;">
+          Submit your resume to be part of our amazing team. We're excited to hear from you!
+        </p>
+    
+        <form method="POST" enctype="multipart/form-data" action="{% url 'home' %}">
+          {% csrf_token %}
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="name" style="font-size: 18px; color: #333; margin-bottom: 8px; display: block;">Name</label>
+            <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; transition: all 0.3s ease;">
+          </div>
+    
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="email" style="font-size: 18px; color: #333; margin-bottom: 8px; display: block;">Email</label>
+            <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; transition: all 0.3s ease;">
+          </div>
+    
+          <div class="form-group" style="margin-bottom: 20px;">
+            <label for="resume" style="font-size: 18px; color: #333; margin-bottom: 8px; display: block;">Upload Resume (PDF only)</label>
+            <input type="file" id="resume" name="resume" accept=".pdf" required style="width: 100%; padding: 12px; font-size: 16px; border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box; transition: all 0.3s ease;">
+          </div>
+    
+          <button type="submit" style="background-color: #002244; border: none; padding: 12px 25px; font-size: 18px; font-weight: bold; color: white; border-radius: 8px; width: 100%; cursor: pointer; transition: background-color 0.3s ease;">
+            Send
+          </button>
+        </form>
+      </div>
+
+      <!-- FOOTER -->
+      <footer style="background-color: #282323; color: white; padding: 50px; margin-top: 60px;">
+        <div class="container">
+            <div class="row">
+                <!-- Company Information -->
+                <div class="col-md-4">
+                    <h4 style="font-weight: bold; font-size: 18px;">ZestBotz Solutions Pvt Ltd</h4>
+                    <p style="font-size: 14px;">
+                        Flat No. 91,Road no.3, <br>
+                        Madhapur, Hyderabad, 500018 <br>
+                    </p>
+                    <p style="font-size: 14px;">
+                        <strong>Email:</strong> dotpysystems@gmail.com <br>
+                        <strong>Phone:</strong> +91 7973645912
+                    </p>
+                </div>
+    
+                <!-- Quick Links -->
+                <div class="col-md-4">
+                    <h4 style="font-weight: bold; font-size: 18px;">Quick Links</h4>
+                    <ul style="list-style-type: none; padding: 0; font-size: 14px;">
+                        <li><a href="#home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#about" style="color: white; text-decoration: none;">About Us</a></li>
+                        <li><a href="#services" style="color: white; text-decoration: none;">Services</a></li>
+                        <li><a href="#contact" style="color: white; text-decoration: none;">Contact Us</a></li>
+                        <li><a href="#faq" style="color: white; text-decoration: none;">FAQs</a></li>
+                        <li><a href="#career" style="color: white; text-decoration: none;">Careers</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media Links -->
+                <div class="col-md-4">
+                    <h4 style="font-weight: bold; font-size: 18px;">Connect with Us</h4>
+                    <div>
+                        <a href="#" style="color: white; text-decoration: none; margin-right: 10px;">
+                            <i class="bi bi-facebook" style="font-size: 20px;"></i> Facebook
+                        </a><br>
+                        <a href="#" style="color: white; text-decoration: none; margin-right: 10px;">
+                            <i class="bi bi-twitter" style="font-size: 20px;"></i> Twitter
+                        </a><br>
+                        <a href="https://www.linkedin.com/company/zestbotz/posts/?feedView=all" style="color: white; text-decoration: none; margin-right: 10px;">
+                            <i class="bi bi-linkedin" style="font-size: 20px;"></i> LinkedIn
+                        </a><br>
+                        <a href="#" style="color: white; text-decoration: none; margin-right: 10px;">
+                            <i class="bi bi-instagram" style="font-size: 20px;"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr style="border-color: white; margin: 20px 0;">
+            
+            <!-- Copyright Section -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p style="font-size: 14px; margin: 0;">© 2024 ZestBotz Solutions Pvt Ltd. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
